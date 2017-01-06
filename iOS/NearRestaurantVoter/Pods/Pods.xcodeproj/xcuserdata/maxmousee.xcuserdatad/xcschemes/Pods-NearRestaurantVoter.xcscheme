@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D8891C0FEB7E0AE6493BD2A7FEF2B983"
+               BlueprintIdentifier = "C0D213D2D6F6948DC39C9ED3E35B12CE"
                BuildableName = "Pods_NearRestaurantVoter.framework"
                BlueprintName = "Pods-NearRestaurantVoter"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D8891C0FEB7E0AE6493BD2A7FEF2B983"
+            BlueprintIdentifier = "C0D213D2D6F6948DC39C9ED3E35B12CE"
             BuildableName = "Pods_NearRestaurantVoter.framework"
             BlueprintName = "Pods-NearRestaurantVoter"
             ReferencedContainer = "container:Pods.xcodeproj">

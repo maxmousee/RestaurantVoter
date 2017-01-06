@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="1551.5" y="-307.5"/>
         </scene>
-        <!--Friends-->
+        <!--Friends' Votes-->
         <scene sceneID="c6S-5S-KQY">
             <objects>
                 <tableViewController id="2Yt-jq-duS" customClass="FriendsViewController" customModule="NearRestaurantVoter" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,7 +172,7 @@
                             <outlet property="delegate" destination="2Yt-jq-duS" id="5c4-sU-h9d"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Friends" id="le0-6Q-nah"/>
+                    <navigationItem key="navigationItem" title="Friends' Votes" id="le0-6Q-nah"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DE5-Lg-VaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
