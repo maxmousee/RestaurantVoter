@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NearRestaurantVoter/ViewController.swift"
-            timestampString = "505362346.955162"
+            timestampString = "505363836.918208"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "searchNearbyRestaurants()"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "locationManager(manager:didChangeAuthorizationStatus:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NearRestaurantVoter/ViewController.swift"
-            timestampString = "505362448.308279"
+            timestampString = "505363836.918208"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "locationManager(manager:didChangeAuthorizationStatus:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "searchNearbyRestaurants()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

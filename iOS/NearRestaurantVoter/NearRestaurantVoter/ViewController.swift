@@ -14,21 +14,21 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager();
-    var location: CLLocation!;
+    var currentCLLocation: CLLocation!;
+    var foursquareSession: Session!;
     var locationStatus = "Not Started";
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         //print("locations = \(locValue.latitude) \(locValue.longitude)")
-        location = manager.location;
+        currentCLLocation = manager.location;
+        searchNearbyRestaurants();
     }
     
     func getUserLocation() {
         // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
-        
-        // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
+        
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
@@ -44,23 +44,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                             redirectURL:    "NearRestaurantVoter://foursquare")
         let configuration = Configuration(client:client)
         Session.setupSharedSessionWithConfiguration(configuration)
-        
-        return Session.sharedSession();
+        let foursquareSession = Session.sharedSession();
+        foursquareSession.logger = ConsoleLogger();
+        return foursquareSession;
     }
     
     func searchNearbyRestaurants() {
-        let foursquareSession = setupFoursquareSession();
-        var parameters = [Parameter.query:"Restaurants"]
-        //let locationDict = ["ll": String(format:"%.8f,%.8f", self.location.coordinate.latitude,self.location.coordinate.longitude)]
-        let locationDict = ["ll": String(format:"%.2f,%.2f", -30.06,-51.16)]
-        parameters += locationDict
+        guard let location = currentCLLocation else {
+            return
+        }
+        
+        var parameters = [Parameter.query:"food"]
+        parameters += location.parameters();
+        
         print(parameters);
         let searchTask = foursquareSession.venues.search(parameters) {
             (result) -> Void in
             if let response = result.response {
-                print(result)
-                print(response)
-                print(response["venues"] ?? "none")
+                //print(result)
+                //print(response)
+                //print(response["venues"] ?? "none")
                 //self.venues = response["venues"] as [JSONParameters]?
                 //self.tableView.reloadData()
             }
@@ -96,9 +99,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        foursquareSession = setupFoursquareSession();
         getUserLocation();
-        searchNearbyRestaurants();
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -112,4 +114,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
 
 }
+
+extension CLLocation {
+    func parameters() -> Parameters {
+        let ll      = "\(self.coordinate.latitude),\(self.coordinate.longitude)"
+        let llAcc   = "\(self.horizontalAccuracy)"
+        let alt     = "\(self.altitude)"
+        let altAcc  = "\(self.verticalAccuracy)"
+        let parameters = [
+            Parameter.ll:ll,
+            Parameter.llAcc:llAcc,
+            Parameter.alt:alt,
+            Parameter.altAcc:altAcc
+        ]
+        return parameters
+    }
+}
+
 
