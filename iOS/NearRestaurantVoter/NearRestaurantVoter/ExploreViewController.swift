@@ -38,7 +38,7 @@ SearchTableViewControllerDelegate {
     func getUserLocation() {
         // Ask for Authorisation from the User.
         self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         self.locationManager.delegate = self
         
         let status = CLLocationManager.authorizationStatus()
