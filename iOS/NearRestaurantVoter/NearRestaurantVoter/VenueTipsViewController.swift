@@ -17,6 +17,11 @@ class VenueTipsViewController: UITableViewController {
     var session: Session!
     var tips: [JSONParameters]?
     
+    @IBAction func voteForRestaurant(_ sender: Any) {
+        print("Vote for this restaurant %s", venueId);
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension

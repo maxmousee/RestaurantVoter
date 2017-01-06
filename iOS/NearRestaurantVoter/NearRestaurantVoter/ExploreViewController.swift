@@ -14,7 +14,7 @@ import CoreLocation
 typealias JSONParameters = [String: AnyObject]
 
 class ExploreViewController: UITableViewController,CLLocationManagerDelegate,
-SearchTableViewControllerDelegate, SessionAuthorizationDelegate {
+SearchTableViewControllerDelegate {
     
     var locationManager = CLLocationManager();
     var currentCLLocation: CLLocation!;

@@ -57,7 +57,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="256" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v46-zz-OXb">
-                                            <rect key="frame" x="78" y="43" width="498" height="58"/>
+                                            <rect key="frame" x="78" y="43" width="289" height="58"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="3xz-xF-2S7"/>
@@ -143,8 +143,8 @@
                                                 <constraint firstAttribute="height" constant="50" id="tJa-oh-xXe"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qog-4H-ki5">
-                                            <rect key="frame" x="72" y="19" width="520" height="36"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qog-4H-ki5">
+                                            <rect key="frame" x="72" y="19" width="295" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="j1u-pu-lJQ"/>
                                             </constraints>
@@ -176,7 +176,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DE5-Lg-VaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1552" y="345"/>
+            <point key="canvasLocation" x="1551.5" y="344.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ltt-PG-cwO">
@@ -319,7 +319,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="WlP-TI-d45">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="x1u-qy-uyY"/>
+                        <barButtonItem key="rightBarButtonItem" title="Vote" id="x1u-qy-uyY">
+                            <connections>
+                                <action selector="voteForRestaurant:" destination="azI-XU-s1O" id="ejY-b2-ZNc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
