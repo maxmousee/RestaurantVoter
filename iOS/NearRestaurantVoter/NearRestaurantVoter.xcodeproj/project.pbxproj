@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E0744EB1E1DC5D600B44F57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0744EA1E1DC5D600B44F57 /* AppDelegate.swift */; };
-		3E0744ED1E1DC5D600B44F57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0744EC1E1DC5D600B44F57 /* ViewController.swift */; };
+		3E0744ED1E1DC5D600B44F57 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0744EC1E1DC5D600B44F57 /* ExploreViewController.swift */; };
 		3E0744F01E1DC5D600B44F57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E0744EE1E1DC5D600B44F57 /* Main.storyboard */; };
 		3E0744F21E1DC5D600B44F57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E0744F11E1DC5D600B44F57 /* Assets.xcassets */; };
 		3E0744F51E1DC5D600B44F57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E0744F31E1DC5D600B44F57 /* LaunchScreen.storyboard */; };
@@ -16,6 +16,10 @@
 		3E0745001E1DC7CC00B44F57 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0744FF1E1DC7CC00B44F57 /* CoreLocation.framework */; };
 		3E76068E1E1F11C0008B7D19 /* QuadratTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E76068B1E1F116F008B7D19 /* QuadratTouch.framework */; };
 		3EE77B6A1E1F322600951178 /* QuadratTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E76068B1E1F116F008B7D19 /* QuadratTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EE77B701E1FAEBF00951178 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE77B6F1E1FAEBF00951178 /* SearchTableViewController.swift */; };
+		3EE77B721E1FAEE600951178 /* VenueTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE77B711E1FAEE600951178 /* VenueTipsViewController.swift */; };
+		3EE77B741E1FAF1C00951178 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE77B731E1FAF1C00951178 /* FriendsViewController.swift */; };
+		3EE77B761E1FAF7500951178 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE77B751E1FAF7500951178 /* Cells.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +70,7 @@
 /* Begin PBXFileReference section */
 		3E0744E71E1DC5D600B44F57 /* NearRestaurantVoter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearRestaurantVoter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E0744EA1E1DC5D600B44F57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3E0744EC1E1DC5D600B44F57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3E0744EC1E1DC5D600B44F57 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		3E0744EF1E1DC5D600B44F57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E0744F11E1DC5D600B44F57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E0744F41E1DC5D600B44F57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,6 +78,10 @@
 		3E0744FD1E1DC7C200B44F57 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E0744FF1E1DC7CC00B44F57 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3E7606831E1F116F008B7D19 /* Quadrat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quadrat.xcodeproj; path = "../das-quadrat/Source/Quadrat.xcodeproj"; sourceTree = "<group>"; };
+		3EE77B6F1E1FAEBF00951178 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		3EE77B711E1FAEE600951178 /* VenueTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueTipsViewController.swift; sourceTree = "<group>"; };
+		3EE77B731E1FAF1C00951178 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		3EE77B751E1FAF7500951178 /* Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +120,11 @@
 			isa = PBXGroup;
 			children = (
 				3E0744EA1E1DC5D600B44F57 /* AppDelegate.swift */,
-				3E0744EC1E1DC5D600B44F57 /* ViewController.swift */,
+				3E0744EC1E1DC5D600B44F57 /* ExploreViewController.swift */,
+				3EE77B751E1FAF7500951178 /* Cells.swift */,
+				3EE77B6F1E1FAEBF00951178 /* SearchTableViewController.swift */,
+				3EE77B711E1FAEE600951178 /* VenueTipsViewController.swift */,
+				3EE77B731E1FAF1C00951178 /* FriendsViewController.swift */,
 				3E0744EE1E1DC5D600B44F57 /* Main.storyboard */,
 				3E0744F11E1DC5D600B44F57 /* Assets.xcassets */,
 				3E0744F31E1DC5D600B44F57 /* LaunchScreen.storyboard */,
@@ -238,7 +250,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E0744ED1E1DC5D600B44F57 /* ViewController.swift in Sources */,
+				3E0744ED1E1DC5D600B44F57 /* ExploreViewController.swift in Sources */,
+				3EE77B761E1FAF7500951178 /* Cells.swift in Sources */,
+				3EE77B741E1FAF1C00951178 /* FriendsViewController.swift in Sources */,
+				3EE77B701E1FAEBF00951178 /* SearchTableViewController.swift in Sources */,
+				3EE77B721E1FAEE600951178 /* VenueTipsViewController.swift in Sources */,
 				3E0744EB1E1DC5D600B44F57 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
