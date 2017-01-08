@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-
+import FirebaseDatabase
+import Firebase
 import QuadratTouch
 
 /** Shows tips related to a venue. */
@@ -17,10 +18,56 @@ class VenueTipsViewController: UITableViewController {
     var session: Session!
     var tips: [JSONParameters]?
     
+    // firebase database
+    var ref: FIRDatabaseReference!
+
+    
     @IBAction func voteForRestaurant(_ sender: Any) {
-        print("Vote for this restaurant %s", venueId);
+        createUser();
+        
+        postVoteForRestaurant(venueId: venueId!);
     }
     
+    func configureFirDatabase() {
+        ref = FIRDatabase.database().reference()
+    }
+    
+    func createUser() {
+        FIRAuth.auth()?.createUser(withEmail: "howanopab@30wave.com", password: "Lalala@1234") { (user, error) in
+            // ...
+        }
+    }
+    
+    func postVoteForRestaurant(venueId: String) {
+        ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            if var post = currentData.value as? [String : AnyObject], let uid = FIRAuth.auth()?.currentUser?.uid {
+                var vote: Dictionary<String, Bool>
+                vote = post[Constants.VotesFields.vote] as? [String : Bool] ?? [:]
+                var voteCount = post[Constants.VotesFields.voteCount] as? Int ?? 0
+                if let _ = vote[uid] {
+                    // Unstar the post and remove self from stars
+                    voteCount -= 1
+                    vote.removeValue(forKey: uid)
+                } else {
+                    // Star the post and add self to stars
+                    voteCount += 1
+                    vote[uid] = true
+                }
+                post[Constants.VotesFields.voteCount] = voteCount as AnyObject?
+                post[Constants.VotesFields.vote] = vote as AnyObject?
+                
+                // Set value and report transaction success
+                currentData.value = post
+                print("DONE");
+                return FIRTransactionResult.success(withValue: currentData)
+            }
+            return FIRTransactionResult.success(withValue: currentData)
+        }) { (error, committed, snapshot) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +94,7 @@ class VenueTipsViewController: UITableViewController {
             self.tableView.reloadData()
         }
         task.start()
+        configureFirDatabase();
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

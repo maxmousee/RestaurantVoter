@@ -20,5 +20,7 @@ struct Constants {
     struct VotesFields {
         static let user = "user"
         static let location = "location"
+        static let vote = "vote"
+        static let voteCount = "voteCount"
     }
 }

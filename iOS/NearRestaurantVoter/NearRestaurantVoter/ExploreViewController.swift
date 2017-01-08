@@ -28,6 +28,7 @@ SearchTableViewControllerDelegate {
     var searchController: UISearchController!
     var resultsTableViewController: SearchTableViewController!
     
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         //print("locations = \(locValue.latitude) \(locValue.longitude)")
