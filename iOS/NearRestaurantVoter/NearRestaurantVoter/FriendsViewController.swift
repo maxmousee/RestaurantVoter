@@ -12,7 +12,7 @@ import Firebase
 /** Shows list of friends votes. */
 class FriendsViewController: UITableViewController {
         
-    var votes: [FIRDataSnapshot]! = []
+    var venues: [FIRDataSnapshot]! = []
     var ref: FIRDatabaseReference!
     fileprivate var _refHandle: FIRDatabaseHandle!
     
@@ -30,17 +30,17 @@ class FriendsViewController: UITableViewController {
     }
     
     deinit {
-        self.ref.child("votes").removeObserver(withHandle: _refHandle)
+        self.ref.child(Constants.VotesFields.venues).removeObserver(withHandle: _refHandle)
     }
     
     
     func configureDatabase() {
         ref = FIRDatabase.database().reference()
         // Listen for new messages in the Firebase database
-        _refHandle = self.ref.child("votes").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+        _refHandle = self.ref.child(Constants.VotesFields.venues).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
-            strongSelf.votes.append(snapshot)
-            strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.votes.count-1, section: 0)], with: .automatic)
+            strongSelf.venues.append(snapshot)
+            strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.venues.count-1, section: 0)], with: .automatic)
         })
     }
     
@@ -76,16 +76,6 @@ class FriendsViewController: UITableViewController {
             if (status == .success) {
                 print("Config fetched!")
                 self.remoteConfig.activateFetched()
-                /*
-                let friendlyMsgLength = self.remoteConfig["friendly_msg_length"]
-                if (friendlyMsgLength.source != .static) {
-                    self.msglength = friendlyMsgLength.numberValue!
-                    print("Friendly msg length config: \(self.msglength)")
- 
- 
-                }
- 
-                 */
             } else {
                 print("Config not fetched")
                 print("Error \(error)")
@@ -106,8 +96,8 @@ class FriendsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let votes = self.votes {
-            return votes.count
+        if let theVenues = self.venues {
+            return theVenues.count
         }
         return 0
     }
@@ -115,20 +105,20 @@ class FriendsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FriendTableViewCell
-        //let friendInfo = friends![(indexPath as NSIndexPath).row]
-        //let firstName = friendInfo["firstName"] as? String
-        //let lastName = friendInfo["lastName"] as? String
-        //let fullName = ((firstName != nil) ? firstName! : "") + " " + ((lastName != nil) ? lastName! : "")
-        //cell.nameLabel?.text = fullName
 
         // Unpack message from Firebase DataSnapshot
-        let voteSnapshot: FIRDataSnapshot! = self.votes[indexPath.row]
-        let vote = voteSnapshot.value as! Dictionary<String, String>
-        let user = vote[Constants.VotesFields.user] as String!
-        let location = vote[Constants.VotesFields.location] as String!
-        cell.textLabel?.text = user! + ": " + location!
-        //cell.nameLabel?.text = user! + ": " + location!
-        cell.imageView?.image = UIImage(named: "ic_account_circle")
+        let snapshot: FIRDataSnapshot! = self.venues[indexPath.row]
+        let value = snapshot.value as? NSDictionary
+        let currentVotes = value?[Constants.VotesFields.voteCount] as? Int ?? 0
+        let currentVenueName = value?[Constants.VotesFields.locationName] as? String ?? "Unknown Venue"
+        
+        if (currentVotes > 1) {
+            cell.textLabel?.text = currentVenueName + ": " + String(currentVotes) + " votes"
+        } else if (currentVotes == 1) {
+            cell.textLabel?.text = currentVenueName + ": " + String(currentVotes) + " vote"
+        }
+        
+        //cell.imageView?.image = UIImage(named: "restaurant_logo")
         /*
         if let photoURL = vote[Constants.MessageFields.photoURL], let URL = URL(string: photoURL), let data = try? Data(contentsOf: URL) {
             cell.imageView?.image = UIImage(data: data)

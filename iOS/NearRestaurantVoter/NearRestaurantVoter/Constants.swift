@@ -17,10 +17,24 @@ struct Constants {
         static let FpToSignIn = "FPToSignIn"
     }
     
+    struct Defaults {
+        static let lastVoteTimestamp = "lastVoteTimestamp"
+    }
+    
+    struct NumValues {
+        static let secondsInADay = 86400.00
+        static let secondsInAWeek = NumValues.secondsInADay * 7
+    }
+    
     struct VotesFields {
-        static let user = "user"
-        static let location = "location"
-        static let vote = "vote"
+        static let users = "users"
+        static let userId = "userId"
+        static let venues = "venues"
+        static let timestamp = "timestamp"
+        static let locationId = "locationId"
+        static let votes = "votes"
         static let voteCount = "voteCount"
+        static let userVoted = "userVoted"
+        static let locationName = "locationName"
     }
 }
