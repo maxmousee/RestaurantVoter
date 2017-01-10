@@ -1,5 +1,11 @@
 # RestaurantVoter
 
+# How to Run: 
+# 1 - Clone repo
+# 2 - git submodule update --init
+# 3 - run on simulator (or real device)
+
+
 # - Why I used iOS/SWIFT?
 # Swift is fast and can be very optimized by the compiler. It is also the recommended language by Apple for new iOS/macOS projects.
 # iOS is also the platform that I have most knowledge.
