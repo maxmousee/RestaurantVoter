@@ -26,7 +26,6 @@ class FriendsViewController: UITableViewController {
         configureDatabase()
         configureStorage()
         configureRemoteConfig()
-
     }
     
     deinit {
@@ -34,14 +33,27 @@ class FriendsViewController: UITableViewController {
     }
     
     
+    func tableViewScrollToBottom(animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            let numberOfSections = self.tableView.numberOfSections
+            let numberOfRows = self.tableView.numberOfRows(inSection: numberOfSections-1)
+            
+            if numberOfRows > 0 {
+                let indexPath = IndexPath(row: numberOfRows-1, section: (numberOfSections-1))
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
+            }
+        }
+    }
+    
     func configureDatabase() {
         
         ref = getReferenceVoteFIRDB()
         // Listen for new messages in the Firebase database
-        _refHandle = self.ref.child(Constants.VotesFields.venues).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+        _refHandle = self.ref.child(Constants.VotesFields.venues).queryOrdered(byChild: Constants.VotesFields.voteCount).queryLimited(toLast: UInt(Constants.NumValues.mostVotedCount)).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
             strongSelf.venues.append(snapshot)
-            strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.venues.count-1, section: 0)], with: .automatic)
+            strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.venues.count-1, section: 0)], with: UITableViewRowAnimation.left)
+            strongSelf.tableViewScrollToBottom(animated: true)
         })
     }
     

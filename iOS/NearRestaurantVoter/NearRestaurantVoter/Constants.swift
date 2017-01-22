@@ -25,6 +25,7 @@ struct Constants {
     struct NumValues {
         static let secondsInADay = 86400.00
         static let secondsInAWeek = NumValues.secondsInADay * 7
+        static let mostVotedCount = 200
     }
     
     struct Messages {
