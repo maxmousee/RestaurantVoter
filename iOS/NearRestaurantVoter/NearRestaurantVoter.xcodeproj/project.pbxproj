@@ -14,6 +14,8 @@
 		3E0744F51E1DC5D600B44F57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E0744F31E1DC5D600B44F57 /* LaunchScreen.storyboard */; };
 		3E0744FE1E1DC7C200B44F57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0744FD1E1DC7C200B44F57 /* MapKit.framework */; };
 		3E0745001E1DC7CC00B44F57 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0744FF1E1DC7CC00B44F57 /* CoreLocation.framework */; };
+		3E15ACBC1E34099500D757CB /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15ACBB1E34099500D757CB /* Commons.swift */; };
+		3E15ACBF1E34600F00D757CB /* Voter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15ACBE1E34600F00D757CB /* Voter.swift */; };
 		3E76068E1E1F11C0008B7D19 /* QuadratTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E76068B1E1F116F008B7D19 /* QuadratTouch.framework */; };
 		3EC0E6AD1E204A2200CF20BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0E6AC1E204A2200CF20BD /* Constants.swift */; };
 		3EC11B6C1E2035C400514E08 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EC11B6B1E2035C400514E08 /* GoogleService-Info.plist */; };
@@ -80,6 +82,8 @@
 		3E0744F61E1DC5D600B44F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E0744FD1E1DC7C200B44F57 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E0744FF1E1DC7CC00B44F57 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3E15ACBB1E34099500D757CB /* Commons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commons.swift; sourceTree = "<group>"; };
+		3E15ACBE1E34600F00D757CB /* Voter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Voter.swift; sourceTree = "<group>"; };
 		3E7606831E1F116F008B7D19 /* Quadrat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quadrat.xcodeproj; path = "../das-quadrat/Source/Quadrat.xcodeproj"; sourceTree = "<group>"; };
 		3EC0E6AC1E204A2200CF20BD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3EC11B6B1E2035C400514E08 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				3EE77B6F1E1FAEBF00951178 /* SearchTableViewController.swift */,
 				3EE77B711E1FAEE600951178 /* VenueTipsViewController.swift */,
 				3EE77B731E1FAF1C00951178 /* FriendsViewController.swift */,
+				3E15ACBE1E34600F00D757CB /* Voter.swift */,
+				3E15ACBB1E34099500D757CB /* Commons.swift */,
 				3EC0E6AC1E204A2200CF20BD /* Constants.swift */,
 				3E0744EE1E1DC5D600B44F57 /* Main.storyboard */,
 				3E0744F11E1DC5D600B44F57 /* Assets.xcassets */,
@@ -327,7 +333,9 @@
 				3E0744ED1E1DC5D600B44F57 /* ExploreViewController.swift in Sources */,
 				3EE77B761E1FAF7500951178 /* Cells.swift in Sources */,
 				3EE77B741E1FAF1C00951178 /* FriendsViewController.swift in Sources */,
+				3E15ACBF1E34600F00D757CB /* Voter.swift in Sources */,
 				3EE77B701E1FAEBF00951178 /* SearchTableViewController.swift in Sources */,
+				3E15ACBC1E34099500D757CB /* Commons.swift in Sources */,
 				3EC0E6AD1E204A2200CF20BD /* Constants.swift in Sources */,
 				3EE77B721E1FAEE600951178 /* VenueTipsViewController.swift in Sources */,
 				3E0744EB1E1DC5D600B44F57 /* AppDelegate.swift in Sources */,

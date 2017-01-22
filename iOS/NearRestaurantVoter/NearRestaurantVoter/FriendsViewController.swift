@@ -35,7 +35,8 @@ class FriendsViewController: UITableViewController {
     
     
     func configureDatabase() {
-        ref = FIRDatabase.database().reference()
+        
+        ref = getReferenceVoteFIRDB()
         // Listen for new messages in the Firebase database
         _refHandle = self.ref.child(Constants.VotesFields.venues).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }

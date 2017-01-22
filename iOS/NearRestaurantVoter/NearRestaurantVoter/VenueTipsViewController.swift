@@ -41,16 +41,44 @@ class VenueTipsViewController: UITableViewController {
             present(alertController, animated: true, completion: nil)
         } else {
             signInAnonymously();
-            if(shouldCleanUpUserWeeklyVotes()) {
-                deleteUserWeeklyVotes();
-            }
             postVoteForRestaurant(theVenueId: venueId!);
-            addWeeklyVoteForUser(theVenueId: venueId!);
-            addReminderNotificationIfVoted();
+            addYesterdayWeeklyWinner();
+            addReminderNotification();
         }
     }
     
-    func addReminderNotificationIfVoted() {
+    func showVoteAnimation() {
+        let voteTL = UITextView();
+        voteTL.backgroundColor = (UIColor .purple);
+        voteTL.frame = CGRect(x: 0, y: ((3 * self.view.bounds.size.height)/8),
+                              width: self.view.bounds.size.width,
+                              height: 60);
+        voteTL.textAlignment = NSTextAlignment.center
+        voteTL.isEditable = false
+        voteTL.isUserInteractionEnabled = false
+        voteTL.font = UIFont.systemFont(ofSize: 36)
+        voteTL.textColor = (UIColor .white)
+        voteTL.text = Constants.Messages.userVote;
+        self.view.addSubview(voteTL);
+        
+        let bounds = voteTL.bounds
+        let smallFrame = voteTL.frame.insetBy(dx: voteTL.frame.size.width / 8, dy: voteTL.frame.size.height / 4)
+        let finalFrame = smallFrame.offsetBy(dx: 0, dy: bounds.size.height)
+        
+        UIView.animateKeyframes(withDuration: 3.0, delay: 0.0, options: UIViewKeyframeAnimationOptions.calculationModeCubic, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+                voteTL.frame = smallFrame
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                voteTL.frame = finalFrame
+            }
+        }, completion: { (finished: Bool) in
+            voteTL.removeFromSuperview();
+        })
+    }
+    
+    func addReminderNotification() {
         let date = Date()
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents(in: .current, from: date)
@@ -84,11 +112,7 @@ class VenueTipsViewController: UITableViewController {
     }
     
     func configureFirDatabase() {
-        ref = FIRDatabase.database().reference()
-    }
-    
-    func deleteUserWeeklyVotes() {
-        //TODO delete all user's votes this week
+        ref = getReferenceVoteFIRDB()
     }
     
     func signInAnonymously() {
@@ -102,29 +126,21 @@ class VenueTipsViewController: UITableViewController {
         }
     }
     
-    func userAlreadyVotedToday() -> Bool {
-        let voteTimestamp = UserDefaults.standard.double(forKey: Constants.Defaults.lastVoteTimestamp);
-        if (voteTimestamp == 0) {
-            return false;
-        }
-        if (Date(timeIntervalSince1970: (voteTimestamp + Constants.NumValues.secondsInADay)).timeIntervalSince1970 > Date().timeIntervalSince1970) {
-            return true;
-        }
-        return false;
-    }
-    
-    func shouldCleanUpUserWeeklyVotes() -> Bool {
-        let voteTimestamp = UserDefaults.standard.double(forKey: Constants.Defaults.lastVoteTimestamp);
-        if (voteTimestamp == 0) {
-            return false;
-        }
-        if (Date(timeIntervalSince1970: (voteTimestamp + Constants.NumValues.secondsInAWeek)).timeIntervalSince1970 > Date().timeIntervalSince1970) {
-            return true;
-        }
-        return false;
-    }
-    
     func postVoteForRestaurant(theVenueId: String) {
+        if(checkWeekWinners(theVenueId: theVenueId)) {
+            let alertController = UIAlertController(title: "Can't vote for this venue",
+                                                    message: "This venue was already elected this week", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
+                (action) -> Void in
+                self.dismiss(animated: true, completion: nil)
+            })
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            return;
+        }
+        
+        showVoteAnimation();
+        
         //let key = ref.child(Constants.VotesFields.users).childByAutoId().key
         //read current vote count
         
@@ -137,23 +153,6 @@ class VenueTipsViewController: UITableViewController {
             let vote = [Constants.VotesFields.voteCount: currentVotes,
                         Constants.VotesFields.locationName: self.title ?? "Unknown Venue"] as [String : Any]
             let childUpdates = ["/\(Constants.VotesFields.venues)/\(theVenueId)/": vote]
-            self.ref.updateChildValues(childUpdates)
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-    }
-    
-    func addWeeklyVoteForUser(theVenueId: String) {
-        ref.child(Constants.VotesFields.users).child(theVenueId).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get votes value
-            let value = snapshot.value as? NSDictionary
-            var currentVotes = value?[Constants.VotesFields.voteCount] as? Int ?? 0
-            // ...
-            currentVotes += 1;
-            let vote = [Constants.VotesFields.voteCount: currentVotes,
-                        Constants.VotesFields.locationId: theVenueId] as [String : Any]
-            let childUpdates = ["/\(Constants.VotesFields.users)/\(self.uid)/": vote]
             self.ref.updateChildValues(childUpdates)
             
         }) { (error) in

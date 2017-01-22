@@ -26,6 +26,10 @@ struct Constants {
         static let secondsInAWeek = NumValues.secondsInADay * 7
     }
     
+    struct Messages {
+        static let userVote = "Voted!"
+    }
+    
     struct VotesFields {
         static let users = "users"
         static let userId = "userId"
@@ -36,5 +40,7 @@ struct Constants {
         static let voteCount = "voteCount"
         static let userVoted = "userVoted"
         static let locationName = "locationName"
+        static let weeklyWinners = "weeklyWinners"
+        static let won = "won"
     }
 }

@@ -9,60 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NearRestaurantVoter/VenueTipsViewController.swift"
-            timestampString = "505639151.045759"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "userAlreadyVotedToday()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NearRestaurantVoter.VenueTipsViewController.postVoteForRestaurant (theVenueId : Swift.String) -&gt; ()"
-                  moduleName = "NearRestaurantVoter"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maxmousee/repo/RestaurantVoter/iOS/NearRestaurantVoter/NearRestaurantVoter/VenueTipsViewController.swift"
-                  timestampString = "505628383.956266"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NearRestaurantVoter.VenueTipsViewController.postVoteForRestaurant (theVenueId : Swift.String) -&gt; ()"
-                  moduleName = "NearRestaurantVoter"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maxmousee/repo/RestaurantVoter/iOS/NearRestaurantVoter/NearRestaurantVoter/VenueTipsViewController.swift"
-                  timestampString = "505628383.95826"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "360">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NearRestaurantVoter/FriendsViewController.swift"
-            timestampString = "505636198.012576"
+            timestampString = "506727107.328573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NearRestaurantVoter/VenueTipsViewController.swift"
-            timestampString = "505639151.045759"
+            timestampString = "506752470.656031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "postVoteForRestaurant(theVenueId:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NearRestaurantVoter/VenueTipsViewController.swift"
-            timestampString = "505639151.045759"
+            timestampString = "506752470.656031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "postVoteForRestaurant(theVenueId:)"
             landmarkType = "7">
             <Locations>
@@ -153,12 +105,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NearRestaurantVoter/VenueTipsViewController.swift"
-            timestampString = "505639151.045759"
+            timestampString = "506752470.656031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "postVoteForRestaurant(theVenueId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NearRestaurantVoter/Commons.swift"
+            timestampString = "506748409.494636"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "getWeekFormattedString()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NearRestaurantVoter/VenueTipsViewController.swift"
+            timestampString = "506752431.179972"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "showVoteAnimation()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
