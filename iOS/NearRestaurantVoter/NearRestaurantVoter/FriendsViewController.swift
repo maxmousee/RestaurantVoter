@@ -83,7 +83,6 @@ class FriendsViewController: UITableViewController {
             }
         }
     }
-
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -119,8 +118,12 @@ class FriendsViewController: UITableViewController {
             cell.textLabel?.text = currentVenueName + ": " + String(currentVotes) + " vote"
         }
         
-        //cell.imageView?.image = UIImage(named: "restaurant_logo")
         /*
+        cell.imageView?.frame = CGRect(x: 10, y: 10,
+                                       width: 10,
+                                       height: 10);
+        cell.imageView?.image = UIImage(named: "restaurant_logo")
+        
         if let photoURL = vote[Constants.MessageFields.photoURL], let URL = URL(string: photoURL), let data = try? Data(contentsOf: URL) {
             cell.imageView?.image = UIImage(data: data)
         }
