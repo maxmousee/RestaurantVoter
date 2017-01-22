@@ -11,14 +11,12 @@ import UIKit
 import FirebaseDatabase
 import Firebase
 import QuadratTouch
-import UserNotifications
 
 /** Shows tips related to a venue. */
 class VenueTipsViewController: UITableViewController {
     var venueId: String?
     var session: Session!
     var uid: String?
-    var isAnonymous = true
     var tips: [JSONParameters]?
     
     
@@ -40,7 +38,7 @@ class VenueTipsViewController: UITableViewController {
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
         } else {
-            signInAnonymously();
+            self.uid = signInAnonymously();
             postVoteForRestaurant(theVenueId: venueId!);
             addYesterdayWeeklyWinner();
             addReminderNotification();
@@ -78,52 +76,8 @@ class VenueTipsViewController: UITableViewController {
         })
     }
     
-    func addReminderNotification() {
-        let date = Date()
-        let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents(in: .current, from: date)
-        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: 13, minute: 0)
-        
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: [.alert,.sound,.badge],
-                completionHandler: { (granted,error) in
-                    
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
-                    let content = UNMutableNotificationContent()
-                    content.title = "Restaurant Voting Ended"
-                    content.body = "Just a reminder to check where you will eat today"
-                    content.sound = UNNotificationSound.default()
-                    let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
-                    
-                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                    UNUserNotificationCenter.current().add(request) {(error) in
-                        if let error = error {
-                            print("Uh oh! We had an error posting the local notification: \(error)")
-                        } else {
-                            print("Local notification posted");
-                        }
-                    }
-            })
-        } else {
-            // Fallback on earlier versions
-        }
-        
-    }
-    
-    func configureFirDatabase() {
+    func configureVoteFirDatabase() {
         ref = getReferenceVoteFIRDB()
-    }
-    
-    func signInAnonymously() {
-        FIRAuth.auth()?.signInAnonymously() { (user, error) in
-            if (error == nil) {
-                self.isAnonymous = user!.isAnonymous  // true
-                self.uid = user!.uid
-            } else {
-                print(error ?? "Unknown error to sign in");
-            }
-        }
     }
     
     func postVoteForRestaurant(theVenueId: String) {
@@ -185,7 +139,7 @@ class VenueTipsViewController: UITableViewController {
             self.animateTable();
         }
         task.start()
-        configureFirDatabase();
+        configureVoteFirDatabase();
     }
     
     func animateTable() {

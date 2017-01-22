@@ -19,6 +19,7 @@ struct Constants {
     
     struct Defaults {
         static let lastVoteTimestamp = "lastVoteTimestamp"
+        static let notificationId = "nearRestaurantVoterNotificationId"
     }
     
     struct NumValues {

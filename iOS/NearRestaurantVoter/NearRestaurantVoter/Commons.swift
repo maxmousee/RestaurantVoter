@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 import Firebase
 
 func getDateFormattedString(date: Date) -> String {
@@ -58,6 +59,18 @@ func getWeekFormattedString() -> String {
     return weekOfYearString;
 }
 
+func signInAnonymously() -> String {
+    var theUser = ""
+    FIRAuth.auth()?.signInAnonymously() { (user, error) in
+        if (error == nil) {
+            theUser = user!.uid
+        } else {
+            print(error ?? "Unknown error to sign in");
+        }
+    }
+    return theUser;
+}
+
 func shouldCleanUpUserWeeklyVotes() -> Bool {
     let voteTimestamp = UserDefaults.standard.double(forKey: Constants.Defaults.lastVoteTimestamp);
     if (voteTimestamp == 0) {
@@ -101,6 +114,45 @@ func addYesterdayWeeklyWinner() {
     }
 }
 
+func addReminderNotification() {
+    let date = Date()
+    let calendar = Calendar(identifier: .gregorian)
+    let components = calendar.dateComponents(in: .current, from: date)
+    let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: 13, minute: 0)
+    
+    if #available(iOS 10.0, *) {
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert,.sound,.badge],
+            completionHandler: { (granted,error) in
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+                let content = UNMutableNotificationContent()
+                content.title = "Restaurant Voting Ended"
+                content.body = "Just a reminder to check where you will eat today"
+                content.sound = UNNotificationSound.default()
+                let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
+                
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                UNUserNotificationCenter.current().add(request) {(error) in
+                    if let error = error {
+                        print("Uh oh! We had an error posting the local notification: \(error)")
+                    } else {
+                        print("Local notification posted");
+                    }
+                }
+        })
+    } else {
+        // Fallback on earlier versions (this works from iOS 4 to iOS 9)
+        UIApplication.shared.cancelAllLocalNotifications()
+        let notification = UILocalNotification()
+        notification.alertBody = "Restaurant Voting Ended, check where you will eat today" // text that will be displayed in the notification
+        notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+        notification.fireDate = date as Date // todo item due date (when notification will be fired) notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+        notification.userInfo = ["UUID": Constants.Defaults.notificationId] // assign a unique identifier to the notification so that we can retrieve it later
+        UIApplication.shared.scheduleLocalNotification(notification)
+    }
+    
+}
 
 func userAlreadyVotedToday() -> Bool {
     /*
