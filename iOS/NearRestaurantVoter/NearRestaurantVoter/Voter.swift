@@ -12,10 +12,4 @@ import Firebase
 class Voter {
     
     
-    
-    func getVenuesVotedYesterday() {
-        
-    }
-    
-    
 }

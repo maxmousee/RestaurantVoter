@@ -95,7 +95,26 @@ func getWeeklyWinnersVoteFIRDB() -> FIRDatabaseReference {
 }
 
 func getYesterdayElectedVenueId() -> String {
-    return "506b5732e4b0c4c151d0c180"
+    var winnerId = "Unknown_Id"
+    print("Will get the most voted yesterday and add it to winners db")
+    let ref = getYesterdayVoteFIRDB();
+    ref.child(Constants.VotesFields.venues).queryOrdered(byChild: Constants.VotesFields.voteCount).queryLimited(toLast: 1).observeSingleEvent(of: .value, with: { (snapshot) in
+        // Get votes for yesterday winner venue
+        
+        let enumerator = snapshot.children
+        while let currentVenue = enumerator.nextObject() as? FIRDataSnapshot {
+            let value = currentVenue.value as? NSDictionary
+            let currentVotes = value?[Constants.VotesFields.voteCount] as? Int ?? 0
+            winnerId = currentVenue.key as String
+            print("Current votes of yesterday winner " + String(currentVotes))
+            print("Id of yesterday winner " + winnerId)
+        }
+        
+        
+    }) { (error) in
+        print(error.localizedDescription)
+    }
+    return winnerId
 }
 
 func addYesterdayWeeklyWinner() {
