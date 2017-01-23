@@ -20,6 +20,7 @@ struct Constants {
     struct Defaults {
         static let lastVoteTimestamp = "lastVoteTimestamp"
         static let notificationId = "nearRestaurantVoterNotificationId"
+        static let timeoutInNs = 10 * 1000 * 1000 * 1000
     }
     
     struct NumValues {

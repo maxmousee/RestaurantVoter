@@ -17,36 +17,21 @@ func getDateFormattedString(date: Date) -> String {
     
     let dateString = dayTimePeriodFormatter.string(from: date as Date)
     
-    //print(dateString);
     return dateString;
 }
-
-func checkWeekWinners(theVenueId: String) -> Bool {
-    //for every winner of last week
-    let isEqual = (theVenueId == getYesterdayElectedVenueId());
-    return isEqual;
-}
-
 
 func getTodayFormattedString() -> String {
     return getDateFormattedString(date: Date())
 }
 
-func getYesterdayFormattedString() -> String {
-    return getDateFormattedString(date: getYesterdayDate())
+func getLastDaysFormattedString(daysEarlier: Int) -> String {
+    return getDateFormattedString(date: getEarlierdayDate(daysEarlier: daysEarlier))
 }
 
-func getYesterdayDate() -> Date {
-    return Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+func getEarlierdayDate(daysEarlier: Int) -> Date {
+    let relativeToCurrentDay = 0 - daysEarlier;
+    return Calendar.current.date(byAdding: .day, value: relativeToCurrentDay, to: Date())!
 }
-
-/*
-func addEllectedToWeeklyLit() {
-    let yesterday = getYesterdayDate()
-    let weeklyWinnersDB = getWeeklyWinnersVoteFIRDB()
-    let yesterdayVotesDB = getReferenceVoteFIRDB()
-}
- */
 
 func getWeekFormattedString() -> String {
     let myCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.ISO8601)!
@@ -86,51 +71,8 @@ func getReferenceVoteFIRDB() -> FIRDatabaseReference {
     return FIRDatabase.database().reference().child(Constants.VotesFields.venues).child(getTodayFormattedString());
 }
 
-func getYesterdayVoteFIRDB() -> FIRDatabaseReference {
-    return FIRDatabase.database().reference().child(Constants.VotesFields.venues).child(getYesterdayFormattedString());
-}
-
-func getWeeklyWinnersVoteFIRDB() -> FIRDatabaseReference {
-    return FIRDatabase.database().reference().child(Constants.VotesFields.weeklyWinners).child(getWeekFormattedString());
-}
-
-func getYesterdayElectedVenueId() -> String {
-    var winnerId = "Unknown_Id"
-    print("Will get the most voted yesterday and add it to winners db")
-    let ref = getYesterdayVoteFIRDB();
-    ref.child(Constants.VotesFields.venues).queryOrdered(byChild: Constants.VotesFields.voteCount).queryLimited(toLast: 1).observeSingleEvent(of: .value, with: { (snapshot) in
-        // Get votes for yesterday winner venue
-        
-        let enumerator = snapshot.children
-        while let currentVenue = enumerator.nextObject() as? FIRDataSnapshot {
-            let value = currentVenue.value as? NSDictionary
-            let currentVotes = value?[Constants.VotesFields.voteCount] as? Int ?? 0
-            winnerId = currentVenue.key as String
-            print("Current votes of yesterday winner " + String(currentVotes))
-            print("Id of yesterday winner " + winnerId)
-        }
-        
-        
-    }) { (error) in
-        print(error.localizedDescription)
-    }
-    return winnerId
-}
-
-func addYesterdayWeeklyWinner() {
-    let yesterdayWinnerVenueId = getYesterdayElectedVenueId()
-    let currentRef = getWeeklyWinnersVoteFIRDB();
-    currentRef.child(yesterdayWinnerVenueId).observeSingleEvent(of: .value, with: { (snapshot) in
-        // Get votes value
-        let value = snapshot.value as? NSDictionary
-        let won = value?[Constants.VotesFields.won] as? Bool ?? true
-        let ellectedVenue = [Constants.VotesFields.won: won] as [String : Any]
-        let childUpdates = ["/\(Constants.VotesFields.venues)/\(yesterdayWinnerVenueId)/": ellectedVenue]
-        currentRef.ref.updateChildValues(childUpdates)
-        
-    }) { (error) in
-        print(error.localizedDescription)
-    }
+func getEarlierVoteFIRDB(daysEarlier: Int) -> FIRDatabaseReference {
+    return FIRDatabase.database().reference().child(Constants.VotesFields.venues).child(getLastDaysFormattedString(daysEarlier: daysEarlier));
 }
 
 func addReminderNotification() {
@@ -171,17 +113,4 @@ func addReminderNotification() {
         UIApplication.shared.scheduleLocalNotification(notification)
     }
     
-}
-
-func userAlreadyVotedToday() -> Bool {
-    /*
-    let voteTimestamp = UserDefaults.standard.double(forKey: Constants.Defaults.lastVoteTimestamp);
-    if (voteTimestamp == 0) {
-        return false;
-    }
-    if (Date(timeIntervalSince1970: (voteTimestamp + Constants.NumValues.secondsInADay)).timeIntervalSince1970 > Date().timeIntervalSince1970) {
-        return true;
-    }
-    */
-    return false;
 }

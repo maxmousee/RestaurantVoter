@@ -8,8 +8,6 @@
 
 import Foundation
 import UIKit
-import FirebaseDatabase
-import Firebase
 import QuadratTouch
 
 /** Shows tips related to a venue. */
@@ -18,17 +16,14 @@ class VenueTipsViewController: UITableViewController {
     var session: Session!
     var uid: String?
     var tips: [JSONParameters]?
+    var voter = Voter()
     
     
     @IBOutlet weak var voteButton: UIBarButtonItem!
     
-    // firebase database
-    var ref: FIRDatabaseReference!
-    
-    
     @IBAction func voteForRestaurant(_ sender: Any) {
         
-        if (userAlreadyVotedToday()) {
+        if (voter.userAlreadyVotedToday()) {
             let alertController = UIAlertController(title: "User already voted today",
                                                     message: "You can't vote twice a day", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
@@ -40,7 +35,6 @@ class VenueTipsViewController: UITableViewController {
         } else {
             self.uid = signInAnonymously();
             postVoteForRestaurant(theVenueId: venueId!);
-            addYesterdayWeeklyWinner();
             addReminderNotification();
         }
     }
@@ -76,42 +70,9 @@ class VenueTipsViewController: UITableViewController {
         })
     }
     
-    func configureVoteFirDatabase() {
-        ref = getReferenceVoteFIRDB()
-    }
-    
     func postVoteForRestaurant(theVenueId: String) {
-        if(checkWeekWinners(theVenueId: theVenueId)) {
-            let alertController = UIAlertController(title: "Can't vote for this venue",
-                                                    message: "This venue was already elected this week", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
-                (action) -> Void in
-                self.dismiss(animated: true, completion: nil)
-            })
-            alertController.addAction(okAction)
-            present(alertController, animated: true, completion: nil)
-            return;
-        }
-        
-        showVoteAnimation();
-        
-        //let key = ref.child(Constants.VotesFields.users).childByAutoId().key
-        //read current vote count
-        
-        ref.child(Constants.VotesFields.venues).child(theVenueId).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get votes value
-            let value = snapshot.value as? NSDictionary
-            var currentVotes = value?[Constants.VotesFields.voteCount] as? Int ?? 0
-            // ...
-            currentVotes += 1;
-            let vote = [Constants.VotesFields.voteCount: currentVotes,
-                        Constants.VotesFields.locationName: self.title ?? "Unknown Venue"] as [String : Any]
-            let childUpdates = ["/\(Constants.VotesFields.venues)/\(theVenueId)/": vote]
-            self.ref.updateChildValues(childUpdates)
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+        voter.checkWeekWinnersAndVote(theVenueId: theVenueId, title:title!, viewController: self)
+        //showVoteAnimation();
     }
     
     override func viewDidLoad() {
@@ -139,7 +100,6 @@ class VenueTipsViewController: UITableViewController {
             self.animateTable();
         }
         task.start()
-        configureVoteFirDatabase();
     }
     
     func animateTable() {
