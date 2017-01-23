@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NearRestaurantVoter/Voter.swift"
-            timestampString = "506830543.900031"
+            timestampString = "506831730.491736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "checkWeekWinnersAndVote(theVenueId:title:viewController:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NearRestaurantVoter/Voter.swift"
-            timestampString = "506830543.900031"
+            timestampString = "506831730.491736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "checkWeekWinnersAndVote(theVenueId:title:viewController:)"
             landmarkType = "7">
          </BreakpointContent>

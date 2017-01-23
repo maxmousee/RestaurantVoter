@@ -24,7 +24,7 @@ class Voter {
                         Constants.VotesFields.locationName: title] as [String : Any]
             let childUpdates = ["/\(Constants.VotesFields.venues)/\(theVenueId)/": vote]
             ref.updateChildValues(childUpdates)
-            
+            self.saveUserVoteTimestamp(voteTimestamp: Date().timeIntervalSince1970)
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -36,7 +36,7 @@ class Voter {
         let ref = getEarlierVoteFIRDB(daysEarlier: daysBeforeToday);
         ref.child(Constants.VotesFields.venues).queryOrdered(byChild: Constants.VotesFields.voteCount).queryLimited(toLast: 1).observeSingleEvent(of: .value, with: { (snapshot) -> Void in
             // Get votes for winner venue
-
+            
             let enumerator = snapshot.children
             while let currentVenue = enumerator.nextObject() as? FIRDataSnapshot {
                 let value = currentVenue.value as? NSDictionary
@@ -73,40 +73,43 @@ class Voter {
     }
     
     /*
-    func showVoteAlert(viewController: UIViewController) {
-        let alertController = UIAlertController(title: "Voted!",
-                                                message: "Thanks for voting", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
-            (action) -> Void in
-            viewController.dismiss(animated: true, completion: nil)
-        })
-        alertController.addAction(okAction)
-        viewController.present(alertController, animated: true, completion: nil)
+     func showVoteAlert(viewController: UIViewController) {
+     let alertController = UIAlertController(title: "Voted!",
+     message: "Thanks for voting", preferredStyle: .alert)
+     let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
+     (action) -> Void in
+     viewController.dismiss(animated: true, completion: nil)
+     })
+     alertController.addAction(okAction)
+     viewController.present(alertController, animated: true, completion: nil)
+     }
+     */
+    
+    func saveUserVoteTimestamp(voteTimestamp: Double) {
+        UserDefaults.standard.set(voteTimestamp, forKey: Constants.Defaults.lastVoteTimestamp)
     }
- */
     
     func checkWeekWinnersAndVote(theVenueId: String, title: String, viewController: UIViewController) {
         //for every winner of last week
         print("Check if " + theVenueId + " was winner in the previous 7 days")
         for day in 1...7 {
             checkIfWinner(daysBeforeToday: day, venueIdToCheck: theVenueId, viewController: viewController);
-            }
+        }
         // can vote
         postVote(theVenueId: theVenueId, title: title);
         //showVoteAlert(viewController: viewController);
     }
-
+    
     func userAlreadyVotedToday() -> Bool {
-        /*
-         let voteTimestamp = UserDefaults.standard.double(forKey: Constants.Defaults.lastVoteTimestamp);
-         if (voteTimestamp == 0) {
-         return false;
-         }
-         if (Date(timeIntervalSince1970: (voteTimestamp + Constants.NumValues.secondsInADay)).timeIntervalSince1970 > Date().timeIntervalSince1970) {
-         return true;
-         }
-         */
+        let voteTimestamp = UserDefaults.standard.double(forKey: Constants.Defaults.lastVoteTimestamp);
+        if (voteTimestamp == 0) {
+            return false;
+        }
+        if (Date(timeIntervalSince1970: (voteTimestamp + Constants.NumValues.secondsInADay)).timeIntervalSince1970 > Date().timeIntervalSince1970) {
+            return true;
+        }
+        
         return false;
     }
-
+    
 }
