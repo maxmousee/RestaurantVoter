@@ -28,6 +28,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.accessibilityActivate()
+        self.tabBarItem.accessibilityActivate()
+        self.tabBarItem.accessibilityLabel = "Search"
         
     }
     

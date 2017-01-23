@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KIF.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-NearRestaurantVoter-NearRestaurantVoterTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-NearRestaurantVoter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -23,6 +33,16 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>6D5CEDECD3D8DC52EA507E0431BDA8A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>73A5B1F97A152D3B9D9F97CECEDF8CD0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>898C4182891DCF5CC594EB02B2032D4F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

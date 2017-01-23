@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FC7430C845556A5483DD5C5 /* Pods_NearRestaurantVoter_NearRestaurantVoterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D41E30199E38FCB9C5952E5C /* Pods_NearRestaurantVoter_NearRestaurantVoterTests.framework */; };
 		3E0744EB1E1DC5D600B44F57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0744EA1E1DC5D600B44F57 /* AppDelegate.swift */; };
 		3E0744ED1E1DC5D600B44F57 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0744EC1E1DC5D600B44F57 /* ExploreViewController.swift */; };
 		3E0744F01E1DC5D600B44F57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E0744EE1E1DC5D600B44F57 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 		3E15ACBC1E34099500D757CB /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15ACBB1E34099500D757CB /* Commons.swift */; };
 		3E15ACBF1E34600F00D757CB /* Voter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15ACBE1E34600F00D757CB /* Voter.swift */; };
 		3E76068E1E1F11C0008B7D19 /* QuadratTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E76068B1E1F116F008B7D19 /* QuadratTouch.framework */; };
+		3EBC298E1E36A03E00A087F8 /* NearRestaurantVoterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC298D1E36A03E00A087F8 /* NearRestaurantVoterTests.swift */; };
 		3EC0E6AD1E204A2200CF20BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0E6AC1E204A2200CF20BD /* Constants.swift */; };
 		3EC11B6C1E2035C400514E08 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EC11B6B1E2035C400514E08 /* GoogleService-Info.plist */; };
 		3EE77B6A1E1F322600951178 /* QuadratTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E76068B1E1F116F008B7D19 /* QuadratTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -49,6 +51,13 @@
 			remoteGlobalIDString = 476B70D91A0EBBA500AFAC33;
 			remoteInfo = QuadratTouch;
 		};
+		3EBC29901E36A03E00A087F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E0744DF1E1DC5D600B44F57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E0744E61E1DC5D600B44F57;
+			remoteInfo = NearRestaurantVoter;
+		};
 		3EE77B6B1E1F322600951178 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3E7606831E1F116F008B7D19 /* Quadrat.xcodeproj */;
@@ -73,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		151AA665BC487F72E2873B52 /* Pods-NearRestaurantVoter-NearRestaurantVoterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearRestaurantVoter-NearRestaurantVoterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearRestaurantVoter-NearRestaurantVoterTests/Pods-NearRestaurantVoter-NearRestaurantVoterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B2B08843F57779E25BB1DCD /* Pods-NearRestaurantVoter-NearRestaurantVoterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearRestaurantVoter-NearRestaurantVoterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearRestaurantVoter-NearRestaurantVoterTests/Pods-NearRestaurantVoter-NearRestaurantVoterTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E0744E71E1DC5D600B44F57 /* NearRestaurantVoter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearRestaurantVoter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E0744EA1E1DC5D600B44F57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E0744EC1E1DC5D600B44F57 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -85,8 +96,12 @@
 		3E15ACBB1E34099500D757CB /* Commons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commons.swift; sourceTree = "<group>"; };
 		3E15ACBE1E34600F00D757CB /* Voter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Voter.swift; sourceTree = "<group>"; };
 		3E7606831E1F116F008B7D19 /* Quadrat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quadrat.xcodeproj; path = "../das-quadrat/Source/Quadrat.xcodeproj"; sourceTree = "<group>"; };
+		3EBC298B1E36A03E00A087F8 /* NearRestaurantVoterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearRestaurantVoterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EBC298D1E36A03E00A087F8 /* NearRestaurantVoterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearRestaurantVoterTests.swift; sourceTree = "<group>"; };
+		3EBC298F1E36A03E00A087F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EC0E6AC1E204A2200CF20BD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3EC11B6B1E2035C400514E08 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3EC128121E36A217005F1D30 /* NearRestaurantVoterTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NearRestaurantVoterTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3EE77B6F1E1FAEBF00951178 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		3EE77B711E1FAEE600951178 /* VenueTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueTipsViewController.swift; sourceTree = "<group>"; };
 		3EE77B731E1FAF1C00951178 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +109,7 @@
 		61CB441A1B942829C6059EB1 /* Pods_NearRestaurantVoter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearRestaurantVoter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A4F261B1AD538BE38C5C9E /* Pods-NearRestaurantVoter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearRestaurantVoter.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearRestaurantVoter/Pods-NearRestaurantVoter.release.xcconfig"; sourceTree = "<group>"; };
 		BBF1BB8B964EF7970A416625 /* Pods-NearRestaurantVoter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearRestaurantVoter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearRestaurantVoter/Pods-NearRestaurantVoter.debug.xcconfig"; sourceTree = "<group>"; };
+		D41E30199E38FCB9C5952E5C /* Pods_NearRestaurantVoter_NearRestaurantVoterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearRestaurantVoter_NearRestaurantVoterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +124,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3EBC29881E36A03E00A087F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FC7430C845556A5483DD5C5 /* Pods_NearRestaurantVoter_NearRestaurantVoterTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -116,6 +140,8 @@
 			children = (
 				BBF1BB8B964EF7970A416625 /* Pods-NearRestaurantVoter.debug.xcconfig */,
 				76A4F261B1AD538BE38C5C9E /* Pods-NearRestaurantVoter.release.xcconfig */,
+				151AA665BC487F72E2873B52 /* Pods-NearRestaurantVoter-NearRestaurantVoterTests.debug.xcconfig */,
+				3B2B08843F57779E25BB1DCD /* Pods-NearRestaurantVoter-NearRestaurantVoterTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -125,6 +151,7 @@
 			children = (
 				3E7606831E1F116F008B7D19 /* Quadrat.xcodeproj */,
 				3E0744E91E1DC5D600B44F57 /* NearRestaurantVoter */,
+				3EBC298C1E36A03E00A087F8 /* NearRestaurantVoterTests */,
 				3E0744E81E1DC5D600B44F57 /* Products */,
 				3E0744FC1E1DC7C200B44F57 /* Frameworks */,
 				394665D899ED8FD95DFB97D0 /* Pods */,
@@ -135,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				3E0744E71E1DC5D600B44F57 /* NearRestaurantVoter.app */,
+				3EBC298B1E36A03E00A087F8 /* NearRestaurantVoterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +194,7 @@
 				3E0744FF1E1DC7CC00B44F57 /* CoreLocation.framework */,
 				3E0744FD1E1DC7C200B44F57 /* MapKit.framework */,
 				61CB441A1B942829C6059EB1 /* Pods_NearRestaurantVoter.framework */,
+				D41E30199E38FCB9C5952E5C /* Pods_NearRestaurantVoter_NearRestaurantVoterTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,6 +206,16 @@
 				3E76068B1E1F116F008B7D19 /* QuadratTouch.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3EBC298C1E36A03E00A087F8 /* NearRestaurantVoterTests */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC298D1E36A03E00A087F8 /* NearRestaurantVoterTests.swift */,
+				3EBC298F1E36A03E00A087F8 /* Info.plist */,
+				3EC128121E36A217005F1D30 /* NearRestaurantVoterTests-Bridging-Header.h */,
+			);
+			path = NearRestaurantVoterTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +244,27 @@
 			productReference = 3E0744E71E1DC5D600B44F57 /* NearRestaurantVoter.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3EBC298A1E36A03E00A087F8 /* NearRestaurantVoterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EBC29951E36A03E00A087F8 /* Build configuration list for PBXNativeTarget "NearRestaurantVoterTests" */;
+			buildPhases = (
+				E0D0DEF1CC08C23D43DCF14B /* [CP] Check Pods Manifest.lock */,
+				3EBC29871E36A03E00A087F8 /* Sources */,
+				3EBC29881E36A03E00A087F8 /* Frameworks */,
+				3EBC29891E36A03E00A087F8 /* Resources */,
+				E81ADE598C42E44CEE7D4532 /* [CP] Embed Pods Frameworks */,
+				B275AC76D6092CF31439CB85 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EBC29911E36A03E00A087F8 /* PBXTargetDependency */,
+			);
+			name = NearRestaurantVoterTests;
+			productName = NearRestaurantVoterTests;
+			productReference = 3EBC298B1E36A03E00A087F8 /* NearRestaurantVoterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -219,6 +279,13 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 656LRSVN44;
 						ProvisioningStyle = Automatic;
+					};
+					3EBC298A1E36A03E00A087F8 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 656LRSVN44;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3E0744E61E1DC5D600B44F57;
 					};
 				};
 			};
@@ -242,6 +309,7 @@
 			projectRoot = "";
 			targets = (
 				3E0744E61E1DC5D600B44F57 /* NearRestaurantVoter */,
+				3EBC298A1E36A03E00A087F8 /* NearRestaurantVoterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,6 +343,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3EBC29891E36A03E00A087F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -291,6 +366,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearRestaurantVoter/Pods-NearRestaurantVoter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B275AC76D6092CF31439CB85 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearRestaurantVoter-NearRestaurantVoterTests/Pods-NearRestaurantVoter-NearRestaurantVoterTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B301E49795FB2A627E0BFB2A /* [CP] Copy Pods Resources */ = {
@@ -323,6 +413,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		E0D0DEF1CC08C23D43DCF14B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E81ADE598C42E44CEE7D4532 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearRestaurantVoter-NearRestaurantVoterTests/Pods-NearRestaurantVoter-NearRestaurantVoterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -342,6 +462,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3EBC29871E36A03E00A087F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EBC298E1E36A03E00A087F8 /* NearRestaurantVoterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -349,6 +477,11 @@
 			isa = PBXTargetDependency;
 			name = QuadratTouch;
 			targetProxy = 3E76068C1E1F1188008B7D19 /* PBXContainerItemProxy */;
+		};
+		3EBC29911E36A03E00A087F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E0744E61E1DC5D600B44F57 /* NearRestaurantVoter */;
+			targetProxy = 3EBC29901E36A03E00A087F8 /* PBXContainerItemProxy */;
 		};
 		3EE77B6C1E1F322600951178 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -502,6 +635,41 @@
 			};
 			name = Release;
 		};
+		3EBC29921E36A03E00A087F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 151AA665BC487F72E2873B52 /* Pods-NearRestaurantVoter-NearRestaurantVoterTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 656LRSVN44;
+				INFOPLIST_FILE = NearRestaurantVoterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nfsindustries.NearRestaurantVoterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NearRestaurantVoterTests/NearRestaurantVoterTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NearRestaurantVoter.app/NearRestaurantVoter";
+			};
+			name = Debug;
+		};
+		3EBC29931E36A03E00A087F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B2B08843F57779E25BB1DCD /* Pods-NearRestaurantVoter-NearRestaurantVoterTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 656LRSVN44;
+				INFOPLIST_FILE = NearRestaurantVoterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nfsindustries.NearRestaurantVoterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NearRestaurantVoterTests/NearRestaurantVoterTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NearRestaurantVoter.app/NearRestaurantVoter";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -519,6 +687,15 @@
 			buildConfigurations = (
 				3E0744FA1E1DC5D600B44F57 /* Debug */,
 				3E0744FB1E1DC5D600B44F57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EBC29951E36A03E00A087F8 /* Build configuration list for PBXNativeTarget "NearRestaurantVoterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EBC29921E36A03E00A087F8 /* Debug */,
+				3EBC29931E36A03E00A087F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

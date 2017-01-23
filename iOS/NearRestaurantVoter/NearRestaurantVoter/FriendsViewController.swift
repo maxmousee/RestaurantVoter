@@ -26,6 +26,10 @@ class FriendsViewController: UITableViewController {
         configureDatabase()
         configureStorage()
         configureRemoteConfig()
+        
+        self.accessibilityActivate()
+        self.tabBarItem.accessibilityActivate()
+        self.tabBarItem.accessibilityLabel = "Favorites"
     }
     
     deinit {

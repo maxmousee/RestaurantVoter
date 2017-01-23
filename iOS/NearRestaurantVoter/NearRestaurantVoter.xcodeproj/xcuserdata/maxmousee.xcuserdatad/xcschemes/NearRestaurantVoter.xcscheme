@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3EBC298A1E36A03E00A087F8"
+               BuildableName = "NearRestaurantVoterTests.xctest"
+               BlueprintName = "NearRestaurantVoterTests"
+               ReferencedContainer = "container:NearRestaurantVoter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

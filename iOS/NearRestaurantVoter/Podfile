@@ -13,5 +13,9 @@ target 'NearRestaurantVoter' do
   pod 'Firebase/Crash'
   pod 'Firebase/Database'
   pod 'Firebase/RemoteConfig'
+  
+  target 'NearRestaurantVoterTests' do
+       pod 'KIF', '~> 3.0', :configurations => ['Debug']
+  end
 
 end

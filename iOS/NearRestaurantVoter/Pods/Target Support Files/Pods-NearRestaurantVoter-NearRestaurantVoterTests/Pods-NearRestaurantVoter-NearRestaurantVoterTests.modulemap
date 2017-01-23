@@ -1,0 +1,6 @@
+framework module Pods_NearRestaurantVoter_NearRestaurantVoterTests {
+  umbrella header "Pods-NearRestaurantVoter-NearRestaurantVoterTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

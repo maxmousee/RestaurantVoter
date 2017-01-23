@@ -180,7 +180,11 @@
         <scene sceneID="ltt-PG-cwO">
             <objects>
                 <navigationController id="aXj-IR-3ze" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="15T-1U-QmZ"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="15T-1U-QmZ">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="Favorites"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2KE-HH-Nx4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -247,7 +251,11 @@
         <scene sceneID="t9V-1l-teD">
             <objects>
                 <navigationController id="Ygb-zq-WN1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="wQU-So-DRo"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="wQU-So-DRo">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="Search"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vUT-Q1-Ujn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
